@@ -37,3 +37,17 @@ def delete_file_content(path):
         pass
 
 
+# Convert file to set
+def file_to_set(file_name):
+    result = set()
+    with open(file_name, 'rt') as f:
+        for line in f:
+            result.add(line.replace('\n', ''))
+    return result
+
+
+def set_to_file(links, file):
+    delete_file_content(file)
+
+    for link in links:
+        append_data_to_files(file, link)
